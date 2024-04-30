@@ -8,6 +8,30 @@
 [project]
 name = "rdklib"
 requires-python = ">=3.7"
+version = "0.3.6"
+
+[tool.docformatter]
+recursive = true
+wrap-descriptions = 120
+wrap-summaries = 120
+
+[tool.flake8]
+# @see https://github.com/psf/black/blob/master/README.md#line-length
+max_line_length = 120
+extend_ignore = [
+  "E203",
+  # Since it conflicts with Black, Black and its philosophy should be respect than hacking.
+  # see: https://github.com/psf/black
+  "H301",
+  # Cohesion may be in experimental.
+  "H601",
+]
+statistics = true
+show_source = true
+exclude = [
+  ".venv",
+  "docs",
+]
 
 [tool.poetry]
 name = "rdklib"
@@ -110,6 +134,9 @@ mkdocs = "^1.4.3"
 mkdocs-material = "^9.1.14"
 mkdocstrings-python = "^1.0.0"
 markdown-include = "^0.8.1"
+
+[tool.setuptools.packages.find]
+include = ["rdklib", "rdklib.*", "rdklibtest", "rdklibtest.*"]
 
 [build-system]
 requires = ["poetry-core"]

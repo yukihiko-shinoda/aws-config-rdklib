@@ -1,0 +1,4 @@
+services:
+  aws-config-rdklib:
+    build: .
+    image: futureys/aws-config-rdklib:latest
